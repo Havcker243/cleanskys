@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Weather Extension",
+  "version": "1.0",
+  "description": "A simple Chrome extension to display weather",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "weatherlogo.png",
+      "48": "weatherlogo.png",
+      "128": "weatherlogo.png"
+    }
+  },
+  "permissions": ["geolocation"],
+  "host_permissions": [
+    "https://api.openweathermap.org/*"
+  ]
+}

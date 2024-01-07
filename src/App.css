@@ -1,0 +1,22 @@
+/* App.css */
+.weather {
+  padding: 10px;
+  border-radius: 5px;
+}
+.snow {
+  background-color: #00f;
+  color: #fff;
+}
+.rain {
+  background-color: #444;
+  color: #8f8;
+}
+.sunny {
+  background-color: #ff0;
+  color: #000;
+}
+.cloudy {
+  background-color: #ccc;
+  color: #000;
+}
+
