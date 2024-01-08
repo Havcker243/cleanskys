@@ -97,6 +97,7 @@ Once installed, the Weather Extension icon will appear in your browser. Clicking
 
 ## Future Enhancements
 
+* Adding it to the chrome extension webstore
 * **User Settings** : Future versions may include customizable settings like default temperature units or preferred locations.
 * **Weather Forecast** : Later iterations might provide a 5-day or 10-day forecast.
 * **Interactive UI** : Future updates could introduce interactive elements like animated weather icons or graphs showing temperature changes throughout the day.
