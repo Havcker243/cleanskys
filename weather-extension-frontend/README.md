@@ -66,17 +66,18 @@ The primary aim of the Weather Extension is to enhance the user experience by pr
 
 * Navigate to `chrome://extensions/` in the Chrome browser.
 * Enable "Developer Mode".
-* Click "Load unpacked" and select the `build` directory of your project.
+* Click "Load unpacked" and select the `build` directory of your project, it should look like the picture below
+* ![1704744344340](image/README/1704744344340.png)
 * Check for any errors in the Chrome extensions page which might provide hints if the extension isn't loading as expected.
+* When you load it in look for an icon like this (![1704744421537](image/README/1704744421537.png))click it and the information would show
 
 ## Usage
 
-Once installed, the Weather Extension icon will appear in your browser. Clicking the icon will open a popup displaying the current weather information, including temperature, condition, and local time. The background and icons will change according to the current weather conditions.
+Once installed, the Weather Extension icon will appear in your browser. Clicking the icon and allow perimission to use your location. The icon will open a popup displaying the current weather information, including temperature, condition, and local time. The background and icons will change according to the current weather conditions.
 
-Here is a picture of how the extension would look when used 
+Here is a picture of how the extension would look when used
 
 ![1704736950515](image/README/1704736950515.png)
-
 
 ## Code Overview
 
