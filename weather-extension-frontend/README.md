@@ -73,6 +73,11 @@ The primary aim of the Weather Extension is to enhance the user experience by pr
 
 Once installed, the Weather Extension icon will appear in your browser. Clicking the icon will open a popup displaying the current weather information, including temperature, condition, and local time. The background and icons will change according to the current weather conditions.
 
+Here is a picture of how the extension would look when used 
+
+![1704736950515](image/README/1704736950515.png)
+
+
 ## Code Overview
 
 ### Key Functions and Components
