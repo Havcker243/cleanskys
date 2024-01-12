@@ -136,7 +136,7 @@ function Weather() {
             alt="Weather icon"
           />
           <p>
-            At {calculationTime}, the state of the weather is :{" "}
+            According to UTC + 8 Timezone at {calculationTime}, the state of the weather is :{" "}
             {weatherData.weather[0].main}
           </p>
           <p>Temperature: {weatherData.main.temp}°C</p>
