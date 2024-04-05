@@ -105,6 +105,7 @@ Here is a picture of how the extension would look when used
 
 * Adding it to the chrome extension webstore
 * **User Settings** : Future versions may include customizable settings like default temperature units or preferred locations.
+* **Location Search Feature**: Where the user can search for the weather data based on the name of the city 
 * **Weather Forecast** : Later iterations might provide a 5-day or 10-day forecast.
 * **Interactive UI** : Future updates could introduce interactive elements like animated weather icons or graphs showing temperature changes throughout the day.
 * **Notifications** : Add notifications for severe weather alerts or significant weather changes.
