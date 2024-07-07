@@ -1,7 +1,16 @@
 /* App.css */
 .weather {
-  padding: 10px;
-  border-radius: 5px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 16px 16px 16px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .snow {
   background-color: #00f;
@@ -19,4 +28,122 @@
   background-color: #ccc;
   color: #000;
 }
+.weather img {
+  transition: transform 0.3s ease;
+  margin-bottom: 10px auto;
 
+}
+
+.weather img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.weather label {
+  display: block;
+  margin-top: 20px;
+}
+
+.weather input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+}
+
+.weather h1, .weather p {
+  color: #333;
+}
+
+.weather p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1;
+}
+
+.weather .temperature-info {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Adding hover effects */
+.weather img:hover {
+  transform: scale(1.1);
+}
+
+/* Toggle Switch Styling */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 10px 10px 10px  ;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+
+.weather button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  width : 80px;
+  padding: 10px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.weather button:hover {
+  background-color: #0b7dda;
+}
