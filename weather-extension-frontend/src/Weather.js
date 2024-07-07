@@ -3,21 +3,23 @@ import React, { useEffect, useState } from "react";
 import "./App.css"; // Make sure you import your styleshee
 // Defining the Weather component.
 function Weather() {
+  // Sate for changing light and dark mode of the program
+  const [darkMode, setDarkMode] = useState(false);
   // State for storing weather data fetched from the API.
   const [weatherData, setWeatherData] = useState(null);
-    // State to store the CSS class based on weather conditions.\
+  // State to store the CSS class based on weather conditions.\
   const [weatherClass, setWeatherClass] = useState(""); // Add a state to hold the class name
-    // State to toggle between Celsius and Fahrenheit.
+  // State to toggle between Celsius and Fahrenheit.
   const [isCelsius, setIsCelsius] = useState(true); // True for Celsius, false for Fahrenheit
-    // State to store weather-related messages.
+  // State to store weather-related messages.
   const [weatherMessage, setWeatherMessage] = useState("");
-    // State to store temperature-related image and description.
+  // State to store temperature-related image and description.
   const [temperatureInfo, setTemperatureInfo] = useState({
     image: "",
     description: "",
   });
 
-    // Array of objects defining temperature ranges and corresponding imagery/descriptions.
+  // Array of objects defining temperature ranges and corresponding imagery/descriptions.
   const temperatureRanges = [
     { max: -10, image: "ice.png", description: "Extremely Cold" },
     { min: -10, max: 0, image: "snow.png", description: "Freezing" }, // Changed to 'snow.png' which might be more visually appropriate for freezing conditions.
@@ -58,6 +60,12 @@ function Weather() {
     },
   ];
 
+  const toggleDarkMode = () => {
+    const newDarkModeState = !darkMode;
+    setDarkMode(newDarkModeState);
+    document.body.classList.toggle("dark-mode", newDarkModeState);
+    localStorage.setItem("darkMode", newDarkModeState ? "enabled" : "disabled");
+  };
 
   // Function to determine the temperature range based on current temperature.
   function getTemperatureRange(temp) {
@@ -77,14 +85,14 @@ function Weather() {
     return (celsius * 9) / 5 + 32;
   }
 
-    // Function to utilize the Web Speech API to speak weather information.
+  // Function to utilize the Web Speech API to speak weather information.
   const speak = (text) => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);
     synth.speak(utterance);
   };
 
-    // Handler for triggering speech of current weather conditions.
+  // Handler for triggering speech of current weather conditions.
   const handleSpeak = () => {
     if (!weatherData) return;
     const tempUnit = isCelsius ? "degrees Celsius" : "degrees Fahrenheit";
@@ -112,6 +120,14 @@ function Weather() {
     }
   }, [weatherData]); // This effect runs whenever weatherData changes
 
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem("darkMode") === "enabled";
+    setDarkMode(isDarkMode);
+    if (isDarkMode) {
+      document.body.classList.add("dark-mode");
+    }
+  }, []);
+
   // useEffect hook to handle the lifecycle of the component.
   useEffect(() => {
     // Function to fetch weather data
@@ -128,7 +144,7 @@ function Weather() {
         // Logging any errors that occur during the fetch operation.
         console.error("Error fetching the weather data:", error);
       }
-      };
+    };
     // Function to get user's location
     const getLocation = () => {
       if (navigator.geolocation) {
@@ -137,7 +153,6 @@ function Weather() {
             // Fetching weather data for the current location.
 
             fetchWeather(position.coords.latitude, position.coords.longitude);
-
           },
           (error) => {
             // Logging any errors that occur while getting the location.
@@ -190,20 +205,21 @@ function Weather() {
   const calculationTime = weatherData.timezone
     ? getLocalTime(weatherData.dt, weatherData.timezone)
     : "";
-// Function used to convert the timestamp to dates 
+  // Function used to convert the timestamp to dates
   function convertTimestampToDate(unixTimestamp) {
     const date = new Date(unixTimestamp * 1000); // Convert the timestamp from seconds to milliseconds
     return date.toLocaleDateString("en-US"); // Returns the date in the format "MM/DD/YYYY" for the US locale
   }
 
-    // Convert UNIX timestamp to a human-readable date.
-const finaldate = convertTimestampToDate(weatherData.dt)
+  // Convert UNIX timestamp to a human-readable date.
+  const finaldate = convertTimestampToDate(weatherData.dt);
 
   // Main JSX for displaying weather information.
   return (
     <div className={`weather ${weatherClass}`}>
       {weatherData.main ? (
         <div>
+          <button onClick={toggleDarkMode}>Dark Mode</button>
           <h1>Weather Information for {weatherData.name}</h1>
           <img
             src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
@@ -213,8 +229,8 @@ const finaldate = convertTimestampToDate(weatherData.dt)
           <p>{weatherMessage}</p>
 
           <p>
-            At {calculationTime} on {finaldate}, the state of the
-            weather is : {weatherData.weather[0].main}
+            At {calculationTime} on {finaldate}, the state of the weather is :{" "}
+            {weatherData.weather[0].main}
           </p>
           <label>
             <div className="toggle-switch">

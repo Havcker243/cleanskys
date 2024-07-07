@@ -11,19 +11,24 @@ The primary aim of the Weather Extension is to enhance the user experience by pr
 * Immediate access to weather information.
 * Visual representation of current weather conditions.
 * Local time synchronization to show weather data relevant to the user's time zone, thus enhancing accessibility to weather information.
+* Send a audio translation for the value in the chrom
 
 ## Features
 
 * **Real-time Weather Updates** : Fetches weather data based on the user's geolocation.
 * **Local Time Display** : Converts the time of the weather data calculation to the user's local time.
 * **Temperature Readings** : Shows temperatures in both Celsius and Fahrenheit.
+* **Toggle for Temperature Units** : Includes a button to easily switch from Celsius to Fahrenheit, enhancing user interaction.
+* **Audio Reporting of Weather** : Uses the browser's Speech Synthesis API to vocalize the current weather conditions, making the app more accessible and interactive.
 
 ## Tools and Technologies
 
-* **React.js** : A powerful JavaScript library (version X.XX) used to build the user interface.
-* **OpenWeatherMap API** : Provides the real-time weather data used in the application.
-* **Chrome Extensions API** : Facilitates the integration of the application as a Chrome browser extension.
-* **CSS** : Enhances the application's look and feel with custom styles and themes.
+* **React.js** : Utilized to build the user interface of the application, leveraging its component-based architecture for efficient updates and state management.
+* **OpenWeatherMap API** : Provides comprehensive weather data, including current conditions, forecasts, and historical weather information.
+* **HTML5 Geolocation API** : Determines the user's current geographic location to fetch localized weather data.
+* **Speech Synthesis API** : Part of the Web Speech API used for converting text to speech, adding an auditory dimension to the application.
+* **CSS** : Used to style the application, ensuring a visually appealing and responsive design that adapts to different devices and screen sizes.
+* **JavaScript (ES6+)** : The scripting language used to implement application logic, manage API data fetching, and handle user interactions within the React framework.
 
 ## Installation and Setup
 
@@ -67,7 +72,8 @@ The primary aim of the Weather Extension is to enhance the user experience by pr
 * Navigate to `chrome://extensions/` in the Chrome browser.
 * Enable "Developer Mode".
 * Click "Load unpacked" and select the `build` directory of your project, it should look like the picture below
-* ![1704744344340](image/README/1704744344340.png)
+
+  ![1720334853641](image/README/1720334853641.png)
 * Check for any errors in the Chrome extensions page which might provide hints if the extension isn't loading as expected.
 * When you load it in look for an icon like this (![1704744421537](image/README/1704744421537.png))click it and the information would show
 
@@ -77,15 +83,15 @@ Once installed, the Weather Extension icon will appear in your browser. Clicking
 
 Here is a picture of how the extension would look when used
 
-![1704736950515](image/README/1704736950515.png)
+![1720334812594](image/README/1720334812594.png)
 
 ## Code Overview
 
 ### Key Functions and Components
 
-* **Weather Component (`Weather.js`)** : The heart of the application. It fetches weather data, processes user location, and renders the weather information.
-* **API Calls** : Utilizes the OpenWeatherMap API to fetch real-time weather data based on latitude and longitude obtained from the user's geolocation.
-* **State Management** : Uses React's `useState` for managing application state (e.g., weather data, local time) and `useEffect` for handling side effects (e.g., API calls, updating the UI in response to state changes).
+* **Weather Component (`Weather.js`)** : Central to the application, responsible for fetching weather data, processing user location, and rendering weather information.
+* **API Calls** : Leverages the OpenWeatherMap API to fetch real-time weather data using coordinates obtained from the user's geolocation.
+* **State Management** : Employs React's `useState` to manage application states such as weather data and local time, and `useEffect` for handling side effects like API calls and UI updates based on state changes.
 
 ### Understanding the Code
 
@@ -105,7 +111,7 @@ Here is a picture of how the extension would look when used
 
 * Adding it to the chrome extension webstore
 * **User Settings** : Future versions may include customizable settings like default temperature units or preferred locations.
-* **Location Search Feature**: Where the user can search for the weather data based on the name of the city 
+* **Location Search Feature**: Where the user can search for the weather data based on the name of the city
 * **Weather Forecast** : Later iterations might provide a 5-day or 10-day forecast.
 * **Interactive UI** : Future updates could introduce interactive elements like animated weather icons or graphs showing temperature changes throughout the day.
 * **Notifications** : Add notifications for severe weather alerts or significant weather changes.

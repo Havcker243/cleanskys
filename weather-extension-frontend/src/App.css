@@ -1,37 +1,55 @@
 /* App.css */
+:root {
+  /* Light theme colors */
+  --background-color: #f4f4f4;
+  --text-color: #333;
+  --sub-text-color: #666;
+  --border-color: #ddd;
+  --button-bg-color: #2196f3;
+  --button-hover-bg-color: #0b7dda;
+  --slider-bg-color: #ccc;
+  --slider-knob-color: white;
+
+  /* Dark theme colors (change as needed for dark mode) */
+  --background-color-dark: #333;
+  --text-color-dark: #ccc;
+  --sub-text-color-dark: #888;
+  --border-color-dark: #555;
+  --button-bg-color-dark: #555;
+  --button-hover-bg-color-dark: #333;
+  --slider-bg-color-dark: #555;
+  --slider-knob-color-dark: #222;
+}
+
+body.dark-mode,
+.weather.dark-mode {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --sub-text-color: var(--sub-text-color-dark);
+  --border-color: var(--border-color-dark);
+  --button-bg-color: var(--button-bg-color-dark);
+  --button-hover-bg-color: var(--button-hover-bg-color-dark);
+  --slider-bg-color: var(--slider-bg-color-dark);
+  --slider-knob-color: var(--slider-knob-color-dark);
+}
+
+.dark-mode .weather h1 {
+  color: #ccc;
+}
+
 .weather {
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 16px 16px 16px rgba(0,0,0,0.1);
+  box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   margin: 20px auto;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.snow {
-  background-color: #00f;
-  color: #fff;
-}
-.rain {
-  background-color: #444;
-  color: #8f8;
-}
-.sunny {
-  background-color: #ff0;
-  color: #000;
-}
-.cloudy {
-  background-color: #ccc;
-  color: #000;
-}
-.weather img {
-  transition: transform 0.3s ease;
-  margin-bottom: 10px auto;
-
 }
 
 .weather img:hover {
@@ -49,13 +67,14 @@
   cursor: pointer;
 }
 
-.weather h1, .weather p {
+.weather h1,
+.weather p {
   color: #333;
 }
 
 .weather p {
   font-size: 16px;
-  color: #666;
+  color: var(--sub-text-color);
   line-height: 1;
 }
 
@@ -71,8 +90,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
+  background-color: var(--slider-bg-color);
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -83,17 +102,17 @@
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
-  transition: .4s;
+  background-color: var(--slider-knob-color);
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -111,7 +130,7 @@ input:checked + .slider:before {
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin: 10px 10px 10px  ;
+  margin: 10px 10px 10px;
 }
 
 .toggle-switch input {
@@ -126,18 +145,17 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   margin-top: 20px;
   transition: background-color 0.3s ease;
 }
 
-
 .weather button {
-  background-color: #2196F3;
+  background-color: var(--button-bg-color);
   color: white;
   border: none;
-  width : 80px;
+  width: 80px;
   padding: 10px 10px;
   border-radius: 15px;
   cursor: pointer;
@@ -145,5 +163,5 @@ button {
 }
 
 .weather button:hover {
-  background-color: #0b7dda;
+  background-color: var(--button-hover-bg-color);
 }
