@@ -1,5 +1,6 @@
 // Importing necessary React hooks and CSS.
 import React, { useEffect, useState } from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import "./App.css"; // Make sure you import your styleshee
 // Defining the Weather component.
 function Weather() {
@@ -214,6 +215,18 @@ function Weather() {
   // Convert UNIX timestamp to a human-readable date.
   const finaldate = convertTimestampToDate(weatherData.dt);
 
+  // Styles for the weather chrome app
+  const containerStyle = {
+    width: "280px",
+    height: "410px",
+  };
+
+  const center = {
+    lat: -34.397,
+    lng: 150.644,
+  };
+  // Google Javascript map API
+  const googleMapsApiKey = process.env.GOOGLE_MAP_API_KEY;
   // Main JSX for displaying weather information.
   return (
     <div className={`weather ${weatherClass}`}>
@@ -281,6 +294,14 @@ function Weather() {
       ) : (
         <p>Weather data not available</p>
       )}
+
+      <LoadScript googleMapsApiKey={googleMapsApiKey} >
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+          {/* Additional map features like Markers, InfoWindows, etc. */}
+          <Marker position={center} />
+        </GoogleMap>
+      </LoadScript>
+      
     </div>
   );
 }

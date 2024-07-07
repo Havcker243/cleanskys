@@ -140,7 +140,6 @@ input:checked + .slider:before {
 }
 
 button {
-  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
@@ -156,10 +155,10 @@ button {
   color: white;
   border: none;
   width: 80px;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 20px;
+
 }
 
 .weather button:hover {

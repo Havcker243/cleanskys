@@ -83,6 +83,8 @@ Once installed, the Weather Extension icon will appear in your browser. Clicking
 
 Here is a picture of how the extension would look when used
 
+![1720339614969](image/README/1720339614969.png)![1720351617934](image/README/1720351617934.png)
+
 ![1720334812594](image/README/1720334812594.png)
 
 ## Code Overview
